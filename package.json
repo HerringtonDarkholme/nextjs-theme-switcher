@@ -20,17 +20,17 @@
       "properties": {
         "nextjsThemeSwitcher.clientTheme": {
           "type": "string",
-          "default": "Default Dark+",
+          "default": "Visual Studio Dark",
           "description": "VSCode theme to use for client-side files"
         },
         "nextjsThemeSwitcher.serverTheme": {
           "type": "string",
-          "default": "Default Light+",
+          "default": "Default Dark Modern",
           "description": "VSCode theme to use for server-side files"
         },
         "nextjsThemeSwitcher.isomorphicTheme": {
           "type": "string",
-          "default": "Monokai",
+          "default": "Default High Contrast",
           "description": "VSCode theme to use for isomorphic/shared files"
         }
       }

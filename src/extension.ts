@@ -22,21 +22,21 @@ export function activate(context: vscode.ExtensionContext) {
 
   // Get theme configurations from settings
   const config = vscode.workspace.getConfiguration('nextjsThemeSwitcher');
-  const clientTheme = config.get<string>('clientTheme', 'Default Dark+');
-  const serverTheme = config.get<string>('serverTheme', 'Default Light+');
-  const isomorphicTheme = config.get<string>('isomorphicTheme', 'Monokai');
+  const clientTheme = config.get<string>('clientTheme', 'Visual Studio Dark');
+  const serverTheme = config.get<string>('serverTheme', 'Default Dark Modern');
+  const isomorphicTheme = config.get<string>('isomorphicTheme', 'Default High Contrast');
 
   // Theme switching function
   const switchTheme = (fileType: FileType) => {
     switch (fileType) {
       case FileType.CLIENT:
-        vscode.commands.executeCommand('workbench.action.selectTheme', clientTheme);
+        vscode.workspace.getConfiguration('workbench').update('colorTheme', clientTheme, vscode.ConfigurationTarget.Workspace);
         break;
       case FileType.SERVER:
-        vscode.commands.executeCommand('workbench.action.selectTheme', serverTheme);
+        vscode.workspace.getConfiguration('workbench').update('colorTheme', serverTheme, vscode.ConfigurationTarget.Workspace);
         break;
       case FileType.ISOMORPHIC:
-        vscode.commands.executeCommand('workbench.action.selectTheme', isomorphicTheme);
+        vscode.workspace.getConfiguration('workbench').update('colorTheme', isomorphicTheme, vscode.ConfigurationTarget.Workspace);
         break;
     }
   };
