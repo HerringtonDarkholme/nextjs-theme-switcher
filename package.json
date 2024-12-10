@@ -1,0 +1,49 @@
+{
+  "name": "nextjs-theme-switcher",
+  "displayName": "Next.js Theme Switcher",
+  "description": "Automatically switch VSCode themes based on Next.js file types",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/next.config.js"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Next.js Theme Switcher",
+      "properties": {
+        "nextjsThemeSwitcher.clientTheme": {
+          "type": "string",
+          "default": "Default Dark+",
+          "description": "VSCode theme to use for client-side files"
+        },
+        "nextjsThemeSwitcher.serverTheme": {
+          "type": "string",
+          "default": "Default Light+",
+          "description": "VSCode theme to use for server-side files"
+        },
+        "nextjsThemeSwitcher.isomorphicTheme": {
+          "type": "string",
+          "default": "Monokai",
+          "description": "VSCode theme to use for isomorphic/shared files"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^4.9.4"
+  }
+}
